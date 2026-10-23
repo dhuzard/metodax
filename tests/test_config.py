@@ -4,11 +4,8 @@ Tests for automation/config.py
 These tests use temporary YAML files and do not require API keys.
 """
 
-import pytest
-import tempfile
-import os
-from pathlib import Path
 
+import pytest
 
 MINIMAL_CONFIG = """
 swarm:
@@ -66,7 +63,7 @@ epistemic_tags:
 def config_file(tmp_path):
     """Write a minimal valid swarm_config.yml to a temp directory."""
     cfg = tmp_path / "swarm_config.yml"
-    cfg.write_text(MINIMAL_CONFIG)
+    cfg.write_text(MINIMAL_CONFIG, encoding="utf-8")
     return tmp_path
 
 
